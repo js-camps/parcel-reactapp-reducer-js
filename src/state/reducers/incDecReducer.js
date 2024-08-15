@@ -1,9 +1,11 @@
+import { ADD, SUBTRACT } from '../actions/calcActions';
+
 const incDecfunc = (state, action) => {
     switch (action.type) {
-        case 'increment':
-          return { count: state.count + 1 };
-        case 'decrement':
-          return { count: state.count - 1 };
+        case ADD:
+          return { count: state.count + action.payload };
+        case SUBTRACT:
+          return { count: state.count - action.payload };
         default:
           throw new Error();
       }
