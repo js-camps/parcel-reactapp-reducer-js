@@ -1,22 +1,23 @@
-import React, { useState } from "react";
+import React, { useReducer } from "react";
+import g from '../state/reducers/incDecReducer';
 import "../styles.css";
 
 export function App() {
-  const initialState = 0;
-  const [count, setCount] = useState(initialState);
+  const initialState = { count: 0 };
+  const [state, f] = useReducer(g, initialState);
 
   const incClick = () => {
-    setCount(count + 1); 
+    f({ type: 'increment' }); 
   };
 
   return (
     <div className="App">
-      <textarea rows="1" value={count} id="total" type="text" name="ans" readOnly />
+      <textarea rows="1" value={state.count} id="total" type="text" name="ans" readOnly />
       <br />
       <button type="button" className="btn" onClick={incClick}>
         + 1
       </button>
-      <button type="button" className="btn" onClick={() => setCount(count - 1)}>
+      <button type="button" className="btn" onClick={() => f({ type: 'decrement' })}>
         - 1
       </button>
     </div>
