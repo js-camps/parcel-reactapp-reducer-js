@@ -1,3 +1,9 @@
+import { ADD, SUBTRACT, CLEAR, ADD_TO_MEMORY} from '../actions/calcActions';
+export const initialState = {
+  currentValue: 9999 ,
+  memory: 0
+}
+
 const reducer = (state, action) => {
     switch (action.type) {
       case "ADD":
