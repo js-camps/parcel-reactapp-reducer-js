@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import reducer from './reducers/calcReducer';
 import "./styles.css";
 
 export function App() {
